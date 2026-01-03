@@ -37,36 +37,40 @@ public class Principal {
     public void mostrarMenu() {
         var opcion = -1;
         while (opcion != 0) {
-            System.out.println(menu);
-            opcion = teclado.nextInt();
-            teclado.nextLine();
+            try {
+                System.out.println(menu);
+                opcion = teclado.nextInt();
+                teclado.nextLine();
 
-            switch (opcion) {
-                case 1:
-                    buscarLibroXTitulo();
-                    break;
-                case 2:
-                    listarLibrosRegistrados();
-                    break;
-                case 3:
-                    listarAutoresRegistrados();
-                    break;
+                switch (opcion) {
+                    case 1:
+                        buscarLibroXTitulo();
+                        break;
+                    case 2:
+                        listarLibrosRegistrados();
+                        break;
+                    case 3:
+                        listarAutoresRegistrados();
+                        break;
 
-                case 4:
-                    listarAutoresVivosXAnio();
-                    break;
-                case 5:
-                    listarLibrosXIdioma();
-                    break;
-                case 0:
-                    System.out.println("Muchas Gracias por su visita!");
-                    break;
-                default:
-                    System.out.println("Opcion invalida intentelo nuevamente");
+                    case 4:
+                        listarAutoresVivosXAnio();
+                        break;
+                    case 5:
+                        listarLibrosXIdioma();
+                        break;
+                    case 0:
+                        System.out.println("Muchas Gracias por su visita!");
+                        break;
+                    default:
+                        System.out.println("Opción invalida inténtelo nuevamente");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida inténtelo nuevamente");
+                teclado.nextLine();
             }
 
         }
-
     }
 
 
