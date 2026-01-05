@@ -29,12 +29,14 @@ public class Autor{
 
     @Override
     public String toString() {
-        return  "  nombre='" + nombre + '\'' +
-                ", año de nacimiento='" + anioNacimiento + '\'' +
-                ", año de fallecimiento='" + anioFallecimiento + '\'' +
+        return  "------------------------------------\n" +
+                "    AUTOR    "+ "\n" +
+                "  nombre='" + nombre + '\'' + "\n" +
+                ", año de nacimiento='" + anioNacimiento + '\'' + "\n" +
+                ", año de fallecimiento='" + anioFallecimiento + '\'' + "\n" +
                 ", libros=" + libros.stream()
-                                    .map(Libro::getTítulo)
-                                    .collect(Collectors.toList());
+                                    .map(Libro::getTitulo)
+                                    .collect(Collectors.toList())+ "\n" ;
     }
 
     public long getId() {

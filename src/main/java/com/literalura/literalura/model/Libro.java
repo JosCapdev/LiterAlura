@@ -10,7 +10,7 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
-    private String título;
+    private String titulo;
     @ManyToOne
     @JoinColumn(name = "autor_id")
     private Autor autor;
@@ -20,7 +20,7 @@ public class Libro {
     public Libro(){}
 
     public Libro(DatosLibro datosLibro){
-        this.título= datosLibro.titulo();
+        this.titulo = datosLibro.titulo();
         this.idiomas=datosLibro.idiomas();
         this.numeroDescargas=datosLibro.numeroDescargas();
 
@@ -28,10 +28,12 @@ public class Libro {
 
     @Override
     public String toString() {
-        return  "título='" + título + '\'' +
-                ", autor=" + (autor !=null ? autor.getNombre(): "N/A") +
-                ", idiomas=" + idiomas +
-                ", numeroDescargas=" + numeroDescargas
+        return  "------------------------------------\n" +
+                "    LIBRO    "+ "\n" +
+                "título='" + titulo + '\'' + "\n" +
+                ", autor=" + (autor !=null ? autor.getNombre(): "N/A") + "\n" +
+                ", idiomas=" + idiomas + "\n" +
+                ", numeroDescargas=" + numeroDescargas+ "\n"
                 ;
     }
 
@@ -51,12 +53,12 @@ public class Libro {
         this.autor = autor;
     }
 
-    public String getTítulo() {
-        return título;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTítulo(String título) {
-        this.título = título;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public List<String> getIdiomas() {
