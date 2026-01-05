@@ -5,10 +5,8 @@ import com.literalura.literalura.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class LibroService {
@@ -95,4 +93,20 @@ public class LibroService {
         librosFiltrados.forEach(l -> System.out.println("- " + l.getTitulo()+"\n"));
     }
 
+    public void top10Descargas() {
+        List<Libro> top10= repository.findTop10ByOrderByNumeroDescargasDesc();
+        System.out.println("---------------");
+        top10.forEach(l -> System.out.println("Libro: "+l.getTitulo()+" Descargas: "+l.getNumeroDescargas()));
+    }
+
+    public void estadisticasDescarga() {
+        DoubleSummaryStatistics est = repository.findAll().stream()
+                .filter(d -> d.getNumeroDescargas() >0 )
+                .collect(Collectors.summarizingDouble(Libro::getNumeroDescargas));
+        System.out.println("---------------");
+        System.out.println("Cantidad media de descargas: " + est.getAverage());
+        System.out.println("Cantidad máxima de descargas: "+ est.getMax());
+        System.out.println("Cantidad mínima de descargas: " + est.getMin());
+        System.out.println(" Cantidad de registros evaluados para calcular las estadisticas: " + est.getCount());
+    }
 }

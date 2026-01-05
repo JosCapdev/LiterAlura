@@ -15,4 +15,8 @@ public interface AutorRepository extends JpaRepository<Autor,Long> {
     @Query("SELECT a FROM Autor a " + "WHERE a.anioNacimiento <= :anio " +
             "AND (a.anioFallecimiento IS NULL OR a.anioFallecimiento >= :anio)")
     List<Autor> autoresVivosEnAnio(Integer anio);
+
+    List<Autor> findByNombreContainingIgnoreCase(String nombre);
+
+
 }

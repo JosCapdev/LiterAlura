@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AutorService {
     @Autowired
@@ -23,5 +25,9 @@ public class AutorService {
 
     public List<Autor> autoresVivosXAnio(int anio){
         return repository.autoresVivosEnAnio(anio);
+    }
+
+    public List <Autor> buscarAutorNombre(String nombre) {
+        return repository.findByNombreContainingIgnoreCase(nombre);
     }
 }

@@ -8,6 +8,7 @@ import com.literalura.literalura.service.LibroService;
 
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Principal {
@@ -23,7 +24,10 @@ public class Principal {
                     3 - Listar autores registrados
                     4 - Listar autores vivos en un determinado año
                     5 - Listar libros por idioma
-            
+                    6 - Buscar autor por nombre
+                    7 - Top 10 libros más descargados
+                    8 - Estadísticas de descarga
+                    
                     0 - Salir
             """;
     private LibroService libroService;
@@ -58,6 +62,17 @@ public class Principal {
                         break;
                     case 5:
                         listarLibrosXIdioma();
+                        break;
+                    case 6:
+                        System.out.println("Ingrese el nombre del autor:");
+                        String nombre = teclado.nextLine();
+                        buscarAutorXNombre(nombre);
+                        break;
+                    case 7:
+                        top10LibrosMasDescargados();
+                        break;
+                    case 8:
+                        estadisticasDescarga();
                         break;
                     case 0:
                         System.out.println("Muchas Gracias por su visita!");
@@ -136,5 +151,28 @@ public class Principal {
         libroService.listarLibroXIdioma();
     }
 
+    private void buscarAutorXNombre(String nombre) {
+        List<Autor> autores = autorService.buscarAutorNombre(nombre);
+        System.out.println("---------------");
+        if (autores.isEmpty()) {
+            System.out.println("Autor no encontrado...");
+        } else {
+            System.out.println("Autores encontrados:");
+            autores.forEach(a -> System.out.println(
+                    "- " + a.getNombre() +
+                            " (" + a.getAnioNacimiento() +
+                            (a.getAnioFallecimiento() != null ? " - " + a.getAnioFallecimiento() : "") + ")"
+            ));
+        }
+    }
+
+
+    private void top10LibrosMasDescargados() {
+        libroService.top10Descargas();
+    }
+
+    private void estadisticasDescarga() {
+        libroService.estadisticasDescarga();
+    }
 
 }
