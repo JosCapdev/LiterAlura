@@ -1,52 +1,57 @@
-# LiterAlura 📚
+📚 LiterAlura – Challenge Java
+🚀 Descripción
+LiterAlura es una aplicación Java que consume la API de Gutendex para buscar y registrar libros y autores en una base de datos.
+El proyecto forma parte del challenge de Alura Latam y Oracle Next Education.
 
-Proyecto realizado como parte del **Challenge Java** de Alura Latam.  
-El objetivo es construir una aplicación en **Java + Spring** que consuma una API de libros y permita consultar, listar y persistir información.
+🛠️ Tecnologías utilizadas
+☕ Java 17
 
----
+🐘 PostgreSQL
 
-## 🚀 Funcionalidades
+🌐 Spring Data JPA
 
-- **Consultar libros** desde una API externa.
-- **Consultar autores** y sus obras.
-- **Persistencia de datos** en base de datos.
-- **Listar libros por idioma**.
-- **Listar autores vivos en determinado año**.
-- **Interacción con el usuario** mediante consola.
-- **Conversión de datos** desde formato JSON.
+🔗 Gutendex API
 
----
+🧰 Maven
 
-## 🛠️ Tecnologías utilizadas
+🎯 Funcionalidades principales
+Buscar libros por título desde la API Gutendex.
 
-- Java 17
-- Spring Boot
-- Maven
-- API externa de libros
-- Base de datos relacional (PostgreSQL)
+Registrar libros y autores en la base de datos.
 
----
+Listar libros registrados.
 
-## 📂 Estructura del proyecto
+Listar autores registrados.
 
-- `src/main/java` → Código fuente principal.
-- `src/main/resources` → Configuración y propiedades.
-- `README.md` → Documentación del proyecto.
-- `.gitignore` → Archivos ignorados por Git.
+Filtrar autores vivos en un determinado año.
 
----
+Listar libros por idioma.
 
-## 📋 Requisitos previos
+✨ Extras implementados
+📊 Estadísticas de descargas con DoubleSummaryStatistics.
 
-- Tener instalado **Java 17** o superior.
-- Tener configurado **Maven**.
-- Acceso a una base de datos PostgreSQL.
-- Conexión a internet para consumir la API.
+🔝 Top 10 libros más descargados.
 
----
+👤 Búsqueda de autores por nombre/apellido (coincidencia parcial).
 
-## ▶️ Ejecución
+📂 Estructura del proyecto
+Código
+src/main/java/com/literalura/literalura/
+ ├── model/        # Entidades Autor y Libro
+ ├── repository/   # Repositorios JPA
+ ├── service/      # Lógica de negocio
+ └── principal/    # Clase Principal con menú interactivo
+▶️ Ejecución
+Clonar el repositorio:
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/JosCapdev/LiterAlura.git
+bash
+git clone https://github.com/JosCapdev/LiterAlura.git
+Configurar la base de datos PostgreSQL en application.properties.
+
+Ejecutar la clase Principal desde tu IDE o con Maven:
+
+bash
+mvn spring-boot:run
+
+👨‍💻 Autor
+Proyecto desarrollado por JosCapdev como parte del challenge LiterAlura – Alura Latam & Oracle Next Education.
