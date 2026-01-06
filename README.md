@@ -1,40 +1,61 @@
 # LiterAlura 📚
 
-Proyecto realizado como parte del **Challenge Java** de Alura Latam.  
-El objetivo es construir una aplicación en **Java + Spring** que consuma una API de libros y permita consultar, listar y persistir información.
+🚀 Descripción
+LiterAlura es una aplicación Java que consume la API de Gutendex para buscar y registrar libros y autores en una base de datos.
+El proyecto forma parte del challenge de Alura Latam y Oracle Next Education.
 
----
 
-## 🚀 Funcionalidades
+## 🚀 Funcionalidades principales
+Buscar libros por título desde la API Gutendex.
 
-- **Consultar libros** desde una API externa.
-- **Consultar autores** y sus obras.
-- **Persistencia de datos** en base de datos.
-- **Listar libros por idioma**.
-- **Listar autores vivos en determinado año**.
-- **Interacción con el usuario** mediante consola.
-- **Conversión de datos** desde formato JSON.
+Registrar libros y autores en la base de datos.
+
+Listar libros registrados.
+
+Listar autores registrados.
+
+Filtrar autores vivos en un determinado año.
+
+Listar libros por idioma.
+
+✨ Extras implementados
+
+📊 Estadísticas de descargas con DoubleSummaryStatistics.
+
+🔝 Top 10 libros más descargados.
+
+👤 Búsqueda de autores por nombre/apellido (coincidencia parcial).
+
 
 ---
 
 ## 🛠️ Tecnologías utilizadas
 
-- Java 17
-- Spring Boot
-- Maven
-- API externa de libros
-- Base de datos relacional (PostgreSQL)
+☕ Java 17
+
+🐘 PostgreSQL
+
+🌐 Spring Data JPA
+
+🔗 Gutendex API
+
+🧰 Maven
 
 ---
 
 ## 📂 Estructura del proyecto
 
-- `src/main/java` → Código fuente principal.
-- `src/main/resources` → Configuración y propiedades.
-- `README.md` → Documentación del proyecto.
-- `.gitignore` → Archivos ignorados por Git.
+Código
 
----
+src/main/java/com/literalura/literalura/
+
+ ├── model/        # Entidades Autor y Libro
+ 
+ ├── repository/   # Repositorios JPA
+ 
+ ├── service/      # Lógica de negocio
+ 
+ └── principal/    # Clase Principal con menú interactivo
 
 ## 📋 Requisitos previos
 
